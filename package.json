@@ -1,0 +1,30 @@
+{
+  "name": "studio14",
+  "version": "1.0.0",
+  "main": "index.js",
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn clean && babel src --out-dir dist",
+    "compile": "babel src --out-file compiled-app.js",
+    "watch-funcs": "yarn clean && babel src --verbose -w --out-dir dist",
+    "test": "yarn build && jest dist/index.test.js --passWithNoTests && yarn clean"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.4",
+    "babel-jest": "^26.3.0",
+    "eslint-plugin-jest": "^23.20.0",
+    "rimraf": "^3.0.2"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/preset-env": "^7.11.0",
+    "@types/jest": "^26.0.10",
+    "jest": "^26.4.1"
+  }
+}
